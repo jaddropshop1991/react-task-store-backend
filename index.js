@@ -35,6 +35,12 @@ mongoose.connect(
     app.use("/api/carts", cartRoute);
     app.use("/api/checkout", stripeRoute);
 
-app.listen("https://gold-spotless-seal.cyclic.app/" || 5000, ()=>{
+{*app.listen("https://gold-spotless-seal.cyclic.app/" || 5000, ()=>{
  console.log("backend server is running!")
-});
+});*}
+
+// Production
+var server = app.listen(process.env.PORT || 3000, function () {
+	var port = server.address().port;
+	console.log("Express is working on port " + port)
+})
